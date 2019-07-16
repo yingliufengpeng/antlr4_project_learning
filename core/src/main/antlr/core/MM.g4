@@ -4,11 +4,18 @@ grammar MM;
 package generated.core;
 }
 
-start: M '+' N;
+start: ID ADD ID
+//    | M '-' N
+    ;
 
+id: ID;
 
 M: 'M';
 N: 'N';
+
+ADD: '+';
+
+ID: [_|a-z|A-Z] [a-z|A-Z|0-9]*;
 
 WS  : [ \t\r\n]+ -> skip ;
 

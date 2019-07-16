@@ -19,18 +19,18 @@ public class MMParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, M=2, N=3, WS=4;
+		M=1, N=2, ADD=3, ID=4, WS=5;
 	public static final int
-		RULE_start = 0;
+		RULE_start = 0, RULE_id = 1;
 	public static final String[] ruleNames = {
-		"start"
+		"start", "id"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'+'", "'M'", "'N'"
+		null, "'M'", "'N'", "'+'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, "M", "N", "WS"
+		null, "M", "N", "ADD", "ID", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -82,8 +82,11 @@ public class MMParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 	public static class StartContext extends ParserRuleContext {
-		public TerminalNode M() { return getToken(MMParser.M, 0); }
-		public TerminalNode N() { return getToken(MMParser.N, 0); }
+		public List<TerminalNode> ID() { return getTokens(MMParser.ID); }
+		public TerminalNode ID(int i) {
+			return getToken(MMParser.ID, i);
+		}
+		public TerminalNode ADD() { return getToken(MMParser.ADD, 0); }
 		public StartContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -109,12 +112,54 @@ public class MMParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(2);
-			match(M);
-			setState(3);
-			match(T__0);
 			setState(4);
-			match(N);
+			match(ID);
+			setState(5);
+			match(ADD);
+			setState(6);
+			match(ID);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class IdContext extends ParserRuleContext {
+		public TerminalNode ID() { return getToken(MMParser.ID, 0); }
+		public IdContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_id; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MMListener ) ((MMListener)listener).enterId(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MMListener ) ((MMListener)listener).exitId(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MMVisitor ) return ((MMVisitor<? extends T>)visitor).visitId(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final IdContext id() throws RecognitionException {
+		IdContext _localctx = new IdContext(_ctx, getState());
+		enterRule(_localctx, 2, RULE_id);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(8);
+			match(ID);
 			}
 		}
 		catch (RecognitionException re) {
@@ -129,9 +174,10 @@ public class MMParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\6\t\4\2\t\2\3\2\3"+
-		"\2\3\2\3\2\3\2\2\2\3\2\2\2\7\2\4\3\2\2\2\4\5\7\4\2\2\5\6\7\3\2\2\6\7\7"+
-		"\5\2\2\7\3\3\2\2\2\2";
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\7\r\4\2\t\2\4\3\t"+
+		"\3\3\2\3\2\3\2\3\2\3\3\3\3\3\3\2\2\4\2\4\2\2\n\2\6\3\2\2\2\4\n\3\2\2\2"+
+		"\6\7\7\6\2\2\7\b\7\5\2\2\b\t\7\6\2\2\t\3\3\2\2\2\n\13\7\6\2\2\13\5\3\2"+
+		"\2\2\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

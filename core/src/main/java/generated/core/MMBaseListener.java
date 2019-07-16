@@ -26,6 +26,18 @@ public class MMBaseListener implements MMListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitStart(MMParser.StartContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterId(MMParser.IdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitId(MMParser.IdContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

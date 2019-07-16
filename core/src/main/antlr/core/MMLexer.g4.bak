@@ -1,0 +1,6 @@
+lexer grammar MMLexer;
+
+channels { WHITESPACE }
+
+
+WS  : [ \t\r\n]+ -> skip ;

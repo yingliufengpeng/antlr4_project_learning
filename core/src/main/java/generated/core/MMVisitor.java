@@ -19,4 +19,10 @@ public interface MMVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitStart(MMParser.StartContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link MMParser#id}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitId(MMParser.IdContext ctx);
 }

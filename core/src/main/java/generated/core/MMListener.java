@@ -20,4 +20,14 @@ public interface MMListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitStart(MMParser.StartContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MMParser#id}.
+	 * @param ctx the parse tree
+	 */
+	void enterId(MMParser.IdContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MMParser#id}.
+	 * @param ctx the parse tree
+	 */
+	void exitId(MMParser.IdContext ctx);
 }
