@@ -2,6 +2,12 @@ import core.MyVisitor2
 import generated.core.{MMLexer, MMParser}
 import org.antlr.v4.runtime.{ANTLRFileStream, CommonTokenStream}
 
+
+/**
+  *
+  * api文档说明
+  *
+  */
 object Main {
 
   def main(args: Array[String]): Unit = {

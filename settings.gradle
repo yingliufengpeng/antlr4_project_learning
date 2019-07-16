@@ -8,5 +8,9 @@
  */
 
 rootProject.name = 'antlr4_project_learning'
+
+
+
+
 include 'core'
 
