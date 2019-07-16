@@ -8,7 +8,7 @@ import org.antlr.v4.runtime.CommonTokenStream
 
 fun main(args: Array<String>) {
 
-    val input = ANTLRInputStream("M")
+    val input = ANTLRInputStream("M + N")
 
     val lexer = MMLexer(input)
 

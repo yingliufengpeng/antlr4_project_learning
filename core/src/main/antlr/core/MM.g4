@@ -4,7 +4,11 @@ grammar MM;
 package generated.core;
 }
 
-start: M;
+start: M '+' N;
 
 
 M: 'M';
+N: 'N';
+
+WS  : [ \t\r\n]+ -> skip ;
+

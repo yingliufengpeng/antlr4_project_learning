@@ -19,20 +19,20 @@ public class MMLexer extends Lexer {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		M=1;
+		T__0=1, M=2, N=3, WS=4;
 	public static String[] modeNames = {
 		"DEFAULT_MODE"
 	};
 
 	public static final String[] ruleNames = {
-		"M"
+		"T__0", "M", "N", "WS"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'M'"
+		null, "'+'", "'M'", "'N'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, "M"
+		null, null, "M", "N", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -89,9 +89,14 @@ public class MMLexer extends Lexer {
 	public ATN getATN() { return _ATN; }
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\2\3\7\b\1\4\2\t\2\3"+
-		"\2\3\2\2\2\3\3\3\3\2\2\6\2\3\3\2\2\2\3\5\3\2\2\2\5\6\7O\2\2\6\4\3\2\2"+
-		"\2\3\2\2";
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\2\6\30\b\1\4\2\t\2"+
+		"\4\3\t\3\4\4\t\4\4\5\t\5\3\2\3\2\3\3\3\3\3\4\3\4\3\5\6\5\23\n\5\r\5\16"+
+		"\5\24\3\5\3\5\2\2\6\3\3\5\4\7\5\t\6\3\2\3\5\2\13\f\17\17\"\"\30\2\3\3"+
+		"\2\2\2\2\5\3\2\2\2\2\7\3\2\2\2\2\t\3\2\2\2\3\13\3\2\2\2\5\r\3\2\2\2\7"+
+		"\17\3\2\2\2\t\22\3\2\2\2\13\f\7-\2\2\f\4\3\2\2\2\r\16\7O\2\2\16\6\3\2"+
+		"\2\2\17\20\7P\2\2\20\b\3\2\2\2\21\23\t\2\2\2\22\21\3\2\2\2\23\24\3\2\2"+
+		"\2\24\22\3\2\2\2\24\25\3\2\2\2\25\26\3\2\2\2\26\27\b\5\2\2\27\n\3\2\2"+
+		"\2\4\2\24\3\b\2\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

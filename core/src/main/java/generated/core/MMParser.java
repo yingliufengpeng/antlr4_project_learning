@@ -19,7 +19,7 @@ public class MMParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		M=1;
+		T__0=1, M=2, N=3, WS=4;
 	public static final int
 		RULE_start = 0;
 	public static final String[] ruleNames = {
@@ -27,10 +27,10 @@ public class MMParser extends Parser {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'M'"
+		null, "'+'", "'M'", "'N'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, "M"
+		null, null, "M", "N", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -83,6 +83,7 @@ public class MMParser extends Parser {
 	}
 	public static class StartContext extends ParserRuleContext {
 		public TerminalNode M() { return getToken(MMParser.M, 0); }
+		public TerminalNode N() { return getToken(MMParser.N, 0); }
 		public StartContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -110,6 +111,10 @@ public class MMParser extends Parser {
 			{
 			setState(2);
 			match(M);
+			setState(3);
+			match(T__0);
+			setState(4);
+			match(N);
 			}
 		}
 		catch (RecognitionException re) {
@@ -124,8 +129,9 @@ public class MMParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\3\7\4\2\t\2\3\2\3"+
-		"\2\3\2\2\2\3\2\2\2\5\2\4\3\2\2\2\4\5\7\3\2\2\5\3\3\2\2\2\2";
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\6\t\4\2\t\2\3\2\3"+
+		"\2\3\2\3\2\3\2\2\2\3\2\2\2\7\2\4\3\2\2\2\4\5\7\4\2\2\5\6\7\3\2\2\6\7\7"+
+		"\5\2\2\7\3\3\2\2\2\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
